@@ -1,7 +1,6 @@
 # Hunter-the-Reckoning5e
 This edit was made to be a Roll20 Character sheet for the upcoming Hunter the Reckoning 5e role playing game. I take no credit for making the code, all that I have done was take an existing Vampire the Masquerade character sheet API and update/format to be for Hunter the Reckoning.
 Below is the license and names of the people who made the real code. All credit to them, I am greatly thankful.
-<!--
     Vampire the Masquerade 5e Alpha Character Sheet (Version 2.1)
     Author: Momtahan K. | UserID: 117780
     Design: Martinez A. | UserID: 143652
