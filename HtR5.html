@@ -1,11 +1,14 @@
 <!--
     Vampire the Masquerade 5e Alpha Character Sheet (Version 2.1)
+
     Author: Momtahan K. | UserID: 117780
     Design: Martinez A. | UserID: 143652
 	Design Contributor: Obi | UserID: 95940
     Kudos to: Andreas J. (UserID: 1223200), Matt Zaldivar, Brian Shields, Benjamin Bandelow and espcially to Konrad J. (UserID: 77736), who's Hero Quest Dice Roller has been invaluable. Special thanks to Beta testers Chros G.(326614)
     and Jordan L.(46186) An extra special shout out the Roll20 and its community Community, who's patience and wisdom helped make this possible. Many thanks to BigWhoop (UserID: 2124413) for his work on the first version of Obi's sheet. 
 	Massive thanks to Barry Snyder (UserID: 399162) for helping us with API-to-Non-API Toggling through explination and use of his code examples.
+
+
     Installation instructions
     This character sheet comes in 4 parts. This html code, the CSS file, a "translation.json" file and the VTM Dice Mechanics.js file
     1 - To add this sheet to your game, create your game and go to the "Settings" menu. 
@@ -15,21 +18,27 @@
     5 - Click "New Script" set the name to hq.js (any name will do, just a nod to Konrad). Copy the contents of the VTM Dice Mechanics.js 
     to the page and click Save Script.
     6 - You should now be good to go.
+
     If you have any questions please ping me at UserID 117780.     
+
     Legal
     Portions of the materials are the copyrights and trademarks of White Wolf Publishing AB, and are used with permission. All rights reserved. For more in formation please visit whitewolf.com
+
     With the exception of materials under the copyright of White Wolf all extra code should be considered under GNU General Public License v3 or later (GPL-3.0-or-later) Copyright 2018 held my Momtahan.K
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
+
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+    
     This license MUST be copied on to any derivative work. Effectively feel free to use, edit and modify the code to your hearts content. As I understand it this will only cause an issue if you  try to use it for commerical gain. This has been added to ensure the community benefits from it.
 -->
 <input class="npc_toggle" name="attr_CoterieCheckbox" type="hidden" value="0">
@@ -39,7 +48,7 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2">
 <span title="CHRONICLE"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3">
-<span title="XP"></span>
+<span title="BLOOD & XP"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab4 sheet-tab_player" value="4">
 <span title="DETAILS"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab5 sheet-tab_player" value="5">
@@ -76,6 +85,218 @@
         </td>
     </tr>
 </table>
+
+<div class="sheet-tab-content sheet-taba">
+    <table style="width:834px" class="sheet-auto-style8">
+        <tr>
+            <td align="center" colspan="9">
+                <img alt="" height="138" src="https://cdn11.bigcommerce.com/s-kftzvkkgjv/images/stencil/1280x1280/products/533/1366/Hunter_Logo_1__27756.1652195690.png?c=1" width="400">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <hr class="sheet-auto-style2 sheet-thick-divide" noshade="noshade">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <h2 data-i18n="coterie-u" class="sheet-auto-style1 sheet-header">COTERIE</h2>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="sheet-auto-style30" colspan="6">
+                <hr class="sheet-auto-style2 sheet-thick-divide" noshade="noshade">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label class="sheet-top-label" data-i18n="name-u">Name:</label>
+            </td>
+            <td style="width: 178px">
+                <input type="text" name="attr_coterie_name" />
+            </td>
+            <td>
+                <label class="sheet-top-label">Type:</label>
+            </td>
+            <td>
+                <select name="attr_coterie_type" style="width:178px; margin: 0 10px 0 10px; display:inline-block">
+                    <option value="0" selected>Custom</option>
+                    <option value="1">Blood Cult</option>
+                    <option value="2">Cerberus</option>
+                    <option value="3">Champions</option>
+                    <option value="4">Commando</option>
+                    <option value="5">Day Watch</option>
+                    <option value="6">Fang Gang</option>
+                    <option value="7">Hunting Party</option>
+                    <option value="8">Maréchal</option>
+                    <option value="9">Nomads</option>
+                    <option value="10">Plumaire</option>
+                    <option value="11">Questari</option>
+                    <option value="12">Regency</option>
+                    <option value="13">Sbirri</option>
+                    <option value="14">Vehme</option>
+                    <option value="15">Watchmen</option>
+                </select>
+            </td>
+            <td>
+                <label class="sheet-top-label">Goal:</label>
+            </td>
+            <td>
+                <input type="text" name="attr_coterie_goal" />
+            </td>
+        </tr>
+
+        <!--Line break-->
+        <tr>
+            <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                <hr class="auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <!--Members-->
+        <tr>
+            <td colspan="6">
+                <h3 align="center">Members</h3>
+            </td>
+        </tr>
+    </table>
+    <div style="width:834px" class="sheet-auto-style8">
+        <fieldset class="repeating_coteriemembers" style="display:inline-block">
+            <div style="text-align: center; margin-bottom: 5px">
+                <label class="sheet-top-label" data-i18n="name-u" style="display:inline-block;">Name:</label>
+                <input type="text" name="attr_coterie_member_name1" style="display:inline-block; margin-right: 10px" />
+                <label class="sheet-top-label" data-i18n="name-u" style="display:inline-block">Name:</label>
+                <input type="text" name="attr_coterie_member_name2" style="display:inline-block; margin-right: 10px" />
+                <label class="sheet-top-label" data-i18n="name-u" style="display:inline-block">Name:</label>
+                <input type="text" name="attr_coterie_member_name3" style="display:inline-block; margin-right: 10px" />
+            </div>
+        </fieldset>
+    </div>
+    <table style="width:834px" class="sheet-auto-style8">
+
+        <!--Line break-->
+        <tr>
+            <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                <hr class="auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <!--Shared Backgrounds-->
+        <tr>
+            <td colspan="6">
+                <h3 align="center">Shared Backgrounds</h3>
+            </td>
+        </tr>
+    </table>
+    <div style="width:834px" class="sheet-auto-style8">
+        <fieldset class="repeating_coteriebackgrounds">
+            <div style="text-align: center">
+                <div style="display:inline-block">
+                    <input type="text" name="attr_CoterieBackgroundsName" style="width:300px" />
+                </div>
+                <div style="display:inline-block">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_CoterieBackgrounds" value="0" checked/>
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="1" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="5" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="6" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="7" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="8" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="9" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieBackgrounds" value="10" />
+                    <span></span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <table style="width:834px" class="sheet-auto-style8">
+
+        <!--Line break-->
+        <tr>
+            <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                <hr class="auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <!--Advantages and Flaws-->
+        <tr>
+            <td colspan="6">
+                <h3 align="center">Merits &amp; Flaws</h3>
+            </td>
+        </tr>
+    </table>
+    <div style="width:834px" class="sheet-auto-style8">
+        <fieldset class="repeating_coteriemeritsandflaws">
+            <div style="text-align: center">
+                <div style="display:inline-block">
+                    <input type="text" name="attr_CoterieMeritsAndFlawsName" style="width:300px" />
+                </div>
+                <div style="display:inline-block">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_CoterieMeritsAndFlaws" value="0" checked/>
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="1" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="5" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="6" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="7" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="8" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="9" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_CoterieMeritsAndFlaws" value="10" />
+                    <span></span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <table style="width:834px" class="sheet-auto-style8">
+
+        <!--Line break-->
+        <tr>
+            <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                <hr class="auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <!-- Notes section -->
+        <tr>
+            <td colspan="6">
+                <h3 style="text-align: center">Overview</h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <textarea name="attr_coterie_notes" style="width:98%;" value="">
+                </textarea>
+            </td>
+        </tr>
+    </table>
+</div>
 
 <div class="sheet-tab-content sheet-tab1">
     <table style="width:834px" class="sheet-auto-style8">
@@ -1636,7 +1857,7 @@
             <div style="text-align: left;" class="sheet-arrowBox">
                 <div style="text-align: left; margin-bottom: 7px">
                     <div style="text-align: left; margin-left: 60px; ">
-                        <h4 style="width:60px; display:inline-block">Perk 1</h4>
+                        <h4 style="width:60px; display:inline-block">Power 1</h4>
                         <input type="text" name="attr_DisciplinePowerName1" style="width:300px; display:inline-block" />
                         <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
                         <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
@@ -1711,7 +1932,7 @@
                 </div>
                 <div style="text-align: left; margin-bottom: 7px">
                     <div style="text-align: left; margin-left: 60px; ">
-                        <h4 style="width:60px; display:inline-block">Perk 2</h4>
+                        <h4 style="width:60px; display:inline-block">Power 2</h4>
                         <input type="text" name="attr_DisciplinePowerName2" style="width:300px; display:inline-block" />
                         <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
                         <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
@@ -1786,7 +2007,7 @@
                 </div>
                 <div style="text-align: left; margin-bottom: 7px">
                     <div style="text-align: left; margin-left: 60px; ">
-                        <h4 style="width:60px; display:inline-block">Perk 3</h4>
+                        <h4 style="width:60px; display:inline-block">Power 3</h4>
                         <input type="text" name="attr_DisciplinePowerName3" style="width:300px; display:inline-block" />
                         <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
                         <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
@@ -1861,7 +2082,7 @@
                 </div>
                 <div style="text-align: left; margin-bottom: 7px">
                     <div style="text-align: left; margin-left: 60px; ">
-                        <h4 style="width:60px; display:inline-block">Perk 4</h4>
+                        <h4 style="width:60px; display:inline-block">Power 4</h4>
                         <input type="text" name="attr_DisciplinePowerName4" style="width:300px; display:inline-block" />
                         <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
                         <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
@@ -1936,7 +2157,7 @@
                 </div>
                 <div style="text-align: left; margin-bottom: 7px">
                     <div style="text-align: left; margin-left: 60px; ">
-                        <h4 style="width:60px; display:inline-block">Perk 5</h4>
+                        <h4 style="width:60px; display:inline-block">Power 5</h4>
                         <input type="text" name="attr_DisciplinePowerName5" style="width:300px; display:inline-block" />
                         <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
                         <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
@@ -2134,6 +2355,306 @@
         </fieldset>
     </div>   
 
+    <table style="width:834px" class="sheet-auto-style8">
+
+        <!-- Separator -->
+        <tr>
+            <td colspan="6">
+                <hr class="sheet-auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <h3 style="text-align: center; width:274px" data-i18n="resonance-u">Resonance</h3>
+            </td>
+            <td colspan="2">
+                <h3 style="text-align: center; width:274px" data-i18n="hunger-u">Hunger</h3>
+            </td>
+            <td colspan="2">
+                <h3 style="text-align: center; width:274px" data-i18n="humanity-u">Humanity</h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="text" name="attr_Resonance" style="width:100%" />
+            </td>
+            <td colspan="2">
+                <div align="center" style="line-height:28px; width:274px">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_Hunger" value="0">
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Hunger" value="1" checked="checked" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Hunger" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Hunger" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Hunger" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Hunger" value="5" />
+                    <span></span>
+                </div>
+            </td>
+            <td colspan="3" align="right" valign="middle">
+                <div style="text-align: center; margin-left:25px">
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box1" value="1" checked="checked" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box1" value="16" />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box1" value="241" />
+
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box2" value="1" checked="checked" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box2" value="16" />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box2" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box3" value="1" checked="checked" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box3" value="16" />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box3" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box4" value="1" checked="checked" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box4" value="16" />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box4" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box" style="margin-right: 5px">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box5" value="1" checked="checked" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box5" value="16" />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box5" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box6" value="1" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box6" value="16" checked="checked"
+                        />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box6" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box7" value="1" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box7" value="16" checked="checked"
+                        />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box7" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box8" value="1" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box8" value="16" checked="checked"
+                        />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box8" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box9" value="1" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box9" value="16" checked="checked"
+                        />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box9" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                    <div align="center" class="sheet-humanity-box">
+                        <input type="radio" class="sheet-humanity-box sheet-no-humanity" name="attr_humanity-box10" value="1" />
+                        <input type="radio" class="sheet-humanity-box sheet-bashing-humanity" name="attr_humanity-box10" value="16" checked="checked"
+                        />
+                        <input type="radio" class="sheet-humanity-box sheet-lethal-humanity" name="attr_humanity-box10" value="241" />
+
+                        <span class="sheet-humanity-box sheet-no-humanity"></span>
+                        <span class="sheet-humanity-box sheet-bashing-humanity"></span>
+                        <span class="sheet-humanity-box sheet-lethal-humanity">&nbsp;∕&nbsp;</span>
+                    </div>
+                </div>
+            </td>
+
+            <tr>
+                <td colspan="6">
+                    <div class="sheet-row" align="center" style="display: inline-block;">
+                        <h3 style="text-align: center; width:205px" data-i18n="rouse-u">Rouse</h3>
+                        <button class="sheet-diebutton-api" title="Rolls Rouse" type='roll' name='roll_rouseApi' value='!vtm rouse t~Rouse ~ c~@{name} ~'></button>
+                        <button class="sheet-diebutton-simple" type="roll" title="Non-API Rouse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Rouse}} {{HungerSuccesses=[[1d10>6 ]]}} {{HungerDice=1}}"
+                            name="roll_rouseInlineDice"></button>
+                    </div>
+                    <div class="sheet-row" align="center" style="display: inline-block;">
+                        <h3 style="text-align: center; width:206px" data-i18n="frenzy-u">Frenzy</h3>
+                        <button class="sheet-diebutton-api" title="Rolls Frenzy" type='roll' name='roll_frenzyApi' value='!vtm frenzy p[[@{willpower-box1} + @{willpower-box2} + @{willpower-box3} + @{willpower-box4} + @{willpower-box5} + @{willpower-box6} + @{willpower-box7} + @{willpower-box8} + @{willpower-box9} + @{willpower-box10} + @{willpower-box11} + @{willpower-box12} + @{willpower-box13} + @{willpower-box14} + @{willpower-box15}]] o[[@{humanity-box1} + @{humanity-box2} + @{humanity-box3} + @{humanity-box4} + @{humanity-box5} + @{humanity-box6} + @{humanity-box7} + @{humanity-box8} + @{humanity-box9} + @{humanity-box10}]] m?{Modifiers|0} q?{Difficulty|1} t~FRENZY ~ c~@{name} ~'></button>
+                        <button class="sheet-diebutton-simple" type="roll" title="Non-API Frenzy Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Frenzy}} {{HungerSuccesses=[[[[?{Willpower|5} + floor([[?{Humanity|5}]]/3.0)+ ?{Modifiers|0}]]d10>6 ]]}} {{HungerDice=[[?{Willpower|5} + floor([[?{Humanity|5}]]/3.0)+ ?{Modifiers|0}]]}}"
+                            name="roll_frenzyInlineDice"></button>
+                    </div>
+                    <div class="sheet-row" align="center" style="display: inline-block;">
+                        <h3 style="text-align: center; width:205px"></h3>
+                        <button class="sheet-diebutton-api" title="Rolls Remorse" type='roll' name='roll_remorseApi' value='!vtm remorse x[[@{humanity-box1} + @{humanity-box2} + @{humanity-box3} + @{humanity-box4} + @{humanity-box5} + @{humanity-box6} + @{humanity-box7} + @{humanity-box8} + @{humanity-box9} + @{humanity-box10}]] m?{Modifiers|0} t~Remorse ~ c~@{name} ~'></button>
+                        <button class="sheet-diebutton-simple" type="roll" title="Non-API Remorse Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Remorse}} {{HungerSuccesses=[[[[?{Remorse Dice|1}]]d10>6 ]]}} {{HungerDice=[[?{Remorse Dice|1}]]}}"
+                            name="roll_remorseInlineDice"></button>
+                    </div>
+                    <div class="sheet-row" align="center" style="display: inline-block;">
+                        <h3 style="text-align: center; width:206px"></h3>
+                        <button class="sheet-diebutton-api" type="roll" title="Rolls Humanity" value='!vtm humanity o[[@{humanity-box1} + @{humanity-box2} + @{humanity-box3} + @{humanity-box4} + @{humanity-box5} + @{humanity-box6} + @{humanity-box7} + @{humanity-box8} + @{humanity-box9} + @{humanity-box10}]] m?{Modifiers|0} t~Humanity ~ c~@{name} ~'
+                            name="roll_HumanityApi">
+                        </button>
+                        <button class="sheet-diebutton-simple" type="roll" title="Non-API Humanity Roll" value="&{template:wod} {{name= @{name}}} {{Rollname=Humanity}} {{NormalSuccesses=[[ [[?{Humanity|5} + ?{Modifiers|0} ]]d10>6 ]]}} {{NormalDice=[[?{Humanity|5} + ?{Modifiers|0} ]]}}"
+                            name="roll_HumanityInlineDice">
+                        </button>
+                    </div>
+                </td>
+            </tr>
+    </table>
+
+
+</div>
+
+<div class="sheet-tab-content sheet-tabb">
+    <table style="width:834px" class="sheet-auto-style8">
+        <tr>
+            <td colspan="6">
+                <h2 class="auto-style1 sheet-header">DOMAIN</h2>
+            </td>
+        </tr>
+
+        <!-- Separator -->
+        <tr>
+            <th colspan="6" align="center">
+                <hr class="sheet-auto-style2 sheet-thick-divide" noshade="noshade">
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <label class="sheet-top-label" data-i18n="name-u">Name:</label>
+            </td>
+            <td style="width: 178px">
+                <input type="text" name="attr_domain_name" />
+            </td>
+            <td>
+                <label class="sheet-top-label">Location:</label>
+            </td>
+            <td style="width: 178px">
+                <input type="text" name="attr_domain_location" />
+            </td>
+            <td>
+                <label class="sheet-top-label">Sect:</label>
+            </td>
+            <td>
+                <input type="text" name="attr_coterie_sect" />
+            </td>
+        </tr>
+
+        <!-- Separator -->
+        <tr>
+            <td colspan="6">
+                <hr class="sheet-auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h4 style="width: 94px">Chasse</h4>
+            </td>
+            <td>
+                <div class="sheet-col" style="width:184px">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_Chasse" value="0" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Chasse" value="1" checked="checked" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Chasse" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Chasse" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Chasse" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Chasse" value="5" />
+                    <span></span>
+                </div>
+            </td>
+            <td>
+                <h4 style="width: 94px">Lien</h4>
+            </td>
+            <td>
+                <div class="sheet-col" style="width:184px">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_Lien" value="0" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Lien" value="1" checked="checked" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Lien" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Lien" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Lien" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Lien" value="5" />
+                    <span></span>
+                </div>
+            </td>
+            <td>
+                <h4 style="width: 94px">Portillon</h4>
+            </td>
+            <td>
+                <div class="sheet-row" style="width:184px">
+                    <input type="radio" class="sheet-defaultRadioBox zero" name="attr_Portillon" value="0" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Portillon" value="1" checked="checked" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Portillon" value="2" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Portillon" value="3" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Portillon" value="4" />
+                    <span></span>
+                    <input type="radio" class="sheet-defaultRadioBox" name="attr_Portillon" value="5" />
+                    <span></span>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Separator -->
+        <tr>
+            <td colspan="6">
+                <hr class="sheet-auto-style2 sheet-thin-divide">
+            </td>
+        </tr>
+        <!-- Notes section -->
+        <tr>
+            <td colspan="6">
+                <h3 style="text-align: center">Overview</h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <textarea name="attr_domain_notes" style="width:98%;" value="">
+            </textarea>
+            </td>
+        </tr>
+    </table>
+    </table>
 </div>
 
 <div class="sheet-tab-content sheet-tab2">
@@ -2176,6 +2697,114 @@
         </tr>
     </div>
 
+    <div class="sheet-tab-content sheet-tabc">
+        <table style="width:834px" class="sheet-auto-style8">
+            <tr>
+                <td colspan="6">
+                    <h2 class="auto-style1 sheet-header">HAVEN</h2>
+                </td>
+            </tr>
+
+            <!-- Separator -->
+            <tr>
+                <th colspan="6" align="center">
+                    <hr class="sheet-auto-style2 sheet-thick-divide" noshade="noshade">
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <label class="sheet-top-label" data-i18n="name-u">Name:</label>
+                </td>
+                <td style="width: 178px">
+                    <input type="text" name="attr_haven_name" />
+                </td>
+                <td>
+                    <label class="sheet-top-label">Location:</label>
+                </td>
+                <td style="width: 178px">
+                    <input type="text" name="attr_haven_location" />
+                </td>
+                <td>
+                    <label class="sheet-top-label">Building:</label>
+                </td>
+                <td>
+                    <input type="text" name="attr_haven_building" />
+                </td>
+            </tr>
+
+            <!--Line break-->
+            <tr>
+                <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                    <hr class="auto-style2 sheet-thin-divide">
+                </td>
+            </tr>
+
+            <!--Haven Advantages & Flaws-->
+            <tr>
+                <td colspan="6">
+                    <h3 align="center">Merits &amp; Flaws</h3>
+                </td>
+            </tr>
+        </table>
+        <div style="width:834px" class="sheet-auto-style8">
+            <fieldset class="repeating_havenmeritsandflaws">
+                <div style="text-align: center">
+                    <div style="display:inline-block">
+                        <input type="text" name="attr_HavenMeritsAndFlawsName" style="width:300px" />
+                    </div>
+                    <div style="display:inline-block">
+                        <input type="radio" class="sheet-defaultRadioBox zero" name="attr_HavenMeritsAndFlaws" value="0" checked/>
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="1" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="2" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="3" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="4" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="5" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="6" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="7" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="8" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="9" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_HavenMeritsAndFlaws" value="10" />
+                        <span></span>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <table style="width:834px" class="sheet-auto-style8">
+
+            <!--Line break-->
+            <tr>
+                <td class="auto-style3" colspan="6" style="height: 24px" valign="middle">
+                    <hr class="auto-style2 sheet-thin-divide">
+                </td>
+            </tr>
+
+            <!-- Notes section -->
+            <tr>
+                <td colspan="6">
+                    <h3 style="text-align: center">Overview</h3>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <textarea name="attr_haven_notes" style="width:98%;" value="">
+                    </textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="sheet-tab-content sheet-tab3">
         <table style="width:834px" class="sheet-auto-style8">
             <tr>
@@ -2190,6 +2819,44 @@
                     <hr class="sheet-auto-style2 sheet-thick-divide" noshade="noshade">
                 </th>
             </tr>
+
+            <tr>
+                <td colspan="6">
+                    <h3 style="text-align: center" data-i18n="bloodpotency-u">Blood Potency</h3>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="6">
+                    <div class="sheet-row" align="center" style="line-height:28px; width:100%; margin-bottom: 5px">
+                        <input type="radio" class="sheet-defaultRadioBox zero" name="attr_BloodPotency" value="0" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="1" checked="checked" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="2" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="3" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="4" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="5" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="6" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="7" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="8" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="9" />
+                        <span></span>
+                        <input type="radio" class="sheet-defaultRadioBox" name="attr_BloodPotency" value="10" />
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+
+
             <!-- Experience -->
             <tr>
                 <td colspan="3">
@@ -2230,7 +2897,7 @@
                 <td colspan="3" align="center">
                     <h4 style="line-height:28px;display:inline-block;margin-right: 10px;position: relative;left:11px">Age
                     </h4>
-                    <input type="text" name="attr_Age" style="width: 150px;margin-right: 10px;margin-bottom: 5px;display:inline-block;position: relative;left:11px "
+                    <input type="text" name="attr_TrueAge" style="width: 150px;margin-right: 10px;margin-bottom: 5px;display:inline-block;position: relative;left:11px "
                     />
                 </td>
                 <td colspan="3" align="center">
@@ -2243,11 +2910,6 @@
                 <td colspan="3" align="center">
                     <h4 style="line-height:28px;display:inline-block;margin-right: 10px;">Date of Birth</h4>
                     <input type="text" name="attr_DateOfBirth" style="width: 150px;margin-right: 10px;margin-bottom: 5px;display: inline-block"
-                    />
-                </td>
-                <td colspan="3" align="center">
-                    <h4 style="line-height:28px;display:inline-block;margin-right: 10px;position: relative;left:1px">Weight</h4>
-                    <input type="text" name="attr_Weight" style="width: 150px;margin-right: 10px;margin-bottom: 5px; display:inline-block;position: relative;left:1px"
                     />
                 </td>
             </tr>
@@ -2931,7 +3593,7 @@
 
             <tr>
                 <td colspan="6" class="auto-style1" style="text-align: center">
-                    <h3> Edges<br /></h3>
+                    <h3> Disciplines<br /></h3>
                 </td>
             </tr>
             <tr>
@@ -3172,16 +3834,3 @@
         </table>
         {{Reroll}}
     </rolltemplate>
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
